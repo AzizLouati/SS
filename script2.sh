@@ -1,8 +1,10 @@
 #!/bin/bash
 # Bash Menu Script Example
+source ./funct.sh
+
 
 PS3='Please enter your choice: '
-options=("lw" "lu" "save" "Quit" "help")
+options=("lw" "lu" "save" "Quit" "help" "menu_yad")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -22,7 +24,7 @@ exec lshw -x
 break
 ;;
 la_commande_lshw)
-exec ./script.sh -lw
+exec lshw
 break 
 ;;
 help)
@@ -45,7 +47,7 @@ do
     case $item1 in 
           executer_la_commande_lscpu)
 
-exec ./script.sh -lu
+exec lscpu
 break 
 ;;
 Limit_the_output_to_offline_CPUs)
@@ -63,13 +65,18 @@ done
 	    
         "save")
             echo "you chose choice 3"
-	    ./script.sh -s
+	    save 
 echo "saved succesuflly"
 break
             ;;
 "help")
 echo " you chose choice 5 "
-./script.sh -help
+helpp
+break
+;;
+
+"menu_yad")
+exec ./test.sh
 break
 ;;
         "Quit")
